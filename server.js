@@ -8,15 +8,16 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.API_KEY;
+
 // Use cors middleware
 app.use(cors());
 
 // Create MySQL connection
 const connection = mysql.createConnection({
-  host: DATABASE_HOST,
-  user: DATABASE_USER,
-  password: DATABASE_PASSWORD,
-  database: DATABASE_DB,
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_DB,
 });
 
 // Connect to MySQL
